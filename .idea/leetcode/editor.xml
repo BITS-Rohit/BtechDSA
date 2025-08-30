@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="LeetcodeEditor">
+    <option name="projectConfig">
+      <map>
+        <entry key="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[2516]Take K of Each Character From Left and Right.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/doc/content/[2516]Take K of Each Character From Left and Right.md" />
+              <option name="frontendQuestionId" value="leetcode.cn2516" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[2516]Take K of Each Character From Left and Right.java" />
+              <option name="titleSlug" value="take-k-of-each-character-from-left-and-right" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[42]Trapping Rain Water.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/doc/content/[42]Trapping Rain Water.md" />
+              <option name="frontendQuestionId" value="leetcode.cn42" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[42]Trapping Rain Water.java" />
+              <option name="titleSlug" value="trapping-rain-water" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[6]Zigzag Conversion.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/doc/content/[6]Zigzag Conversion.md" />
+              <option name="frontendQuestionId" value="leetcode.cn6" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[6]Zigzag Conversion.java" />
+              <option name="titleSlug" value="zigzag-conversion" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/AppData/Local/Temp/leetcode/editor/en/[1114]Print in Order.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/en/doc/content/[1114]Print in Order.md" />
+              <option name="frontendQuestionId" value="leetcode.com1114" />
+              <option name="host" value="leetcode.com" />
+              <option name="path" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/en/[1114]Print in Order.java" />
+              <option name="titleSlug" value="print-in-order" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/AppData/Local/Temp/leetcode/editor/en/[1116]Print Zero Even Odd.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/en/doc/content/[1116]Print Zero Even Odd.md" />
+              <option name="frontendQuestionId" value="leetcode.com1116" />
+              <option name="host" value="leetcode.com" />
+              <option name="path" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/en/[1116]Print Zero Even Odd.java" />
+              <option name="titleSlug" value="print-zero-even-odd" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/AppData/Local/Temp/leetcode/editor/en/[15]3Sum.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/en/doc/content/[15]3Sum.md" />
+              <option name="frontendQuestionId" value="leetcode.com15" />
+              <option name="host" value="leetcode.com" />
+              <option name="path" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/en/[15]3Sum.java" />
+              <option name="titleSlug" value="3sum" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/AppData/Local/Temp/leetcode/editor/en/[1920]Build Array from Permutation.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/en/doc/content/[1920]Build Array from Permutation.md" />
+              <option name="frontendQuestionId" value="leetcode.com1920" />
+              <option name="host" value="leetcode.com" />
+              <option name="path" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/en/[1920]Build Array from Permutation.java" />
+              <option name="titleSlug" value="build-array-from-permutation" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/AppData/Local/Temp/leetcode/editor/en/[42]Trapping Rain Water.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/en/doc/content/[42]Trapping Rain Water.md" />
+              <option name="frontendQuestionId" value="leetcode.com42" />
+              <option name="host" value="leetcode.com" />
+              <option name="path" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/en/[42]Trapping Rain Water.java" />
+              <option name="titleSlug" value="trapping-rain-water" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/AppData/Local/Temp/leetcode/editor/en/[456]132 Pattern.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/en/doc/content/[456]132 Pattern.md" />
+              <option name="frontendQuestionId" value="leetcode.com456" />
+              <option name="host" value="leetcode.com" />
+              <option name="path" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/en/[456]132 Pattern.java" />
+              <option name="titleSlug" value="132-pattern" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/AppData/Local/Temp/leetcode/editor/en/[567]Permutation in String.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/en/doc/content/[567]Permutation in String.md" />
+              <option name="frontendQuestionId" value="leetcode.com567" />
+              <option name="host" value="leetcode.com" />
+              <option name="path" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/en/[567]Permutation in String.java" />
+              <option name="titleSlug" value="permutation-in-string" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/AppData/Local/Temp/leetcode/editor/en/[62]Unique Paths.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/en/doc/content/[62]Unique Paths.md" />
+              <option name="frontendQuestionId" value="leetcode.com62" />
+              <option name="host" value="leetcode.com" />
+              <option name="path" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/en/[62]Unique Paths.java" />
+              <option name="titleSlug" value="unique-paths" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry />
+      </map>
+    </option>
+  </component>
+</project>

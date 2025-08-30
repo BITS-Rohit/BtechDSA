@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.AmbientLight?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Arc?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="435.0" prefWidth="653.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button layoutX="264.0" layoutY="191.0" mnemonicParsing="false"  prefHeight="26.0" prefWidth="87.0" text="Button" />
+      <Label accessibleText="New Eater" alignment="CENTER" blendMode="SRC_ATOP" cache="true" contentDisplay="BOTTOM" graphicTextGap="6.0" lineSpacing="5.0" prefHeight="18.0" prefWidth="653.0" text="Button Eater" AnchorPane.bottomAnchor="416.6" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-0.6000000000000227" AnchorPane.topAnchor="0.0">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Button layoutX="380.0" layoutY="192.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="63.0" text="Button" />
+      <Button layoutX="466.0" layoutY="192.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="51.0" text="Button" />
+      <Button layoutX="540.0" layoutY="193.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" text="Button" />
+      <Arc id="231451" fill="#fffe1f" layoutX="161.0" layoutY="191.0" length="270.0" opacity="0.66" radiusX="114.0" radiusY="100.0" startAngle="45.0" strokeDashOffset="5.0" strokeType="INSIDE" type="ROUND">
+         <stroke>
+            <RadialGradient centerX="0.6946902486075341" centerY="0.4810606060606061" cycleMethod="REPEAT" focusAngle="180.0" focusDistance="0.2385321450889657" radius="0.27064224558139066">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.9973082099596231">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </stroke>
+      </Arc>
+      <AmbientLight color="CHARTREUSE" lightOn="true" />
+      <AmbientLight layoutX="492.0" layoutY="57.0">
+         <color>
+            <Color red="0.8999999761581421" blue="1.0" opacity="0.8632218241691589" />
+         </color>
+      </AmbientLight>
+      <ScrollBar layoutY="421.0" prefHeight="14.0" prefWidth="653.0" />
+      <ProgressIndicator layoutX="338.0" layoutY="84.0" prefHeight="41.0" prefWidth="51.0" progress="0.0" />
+      <ScrollBar layoutX="639.0" layoutY="-7.0" orientation="VERTICAL" prefHeight="428.0" prefWidth="14.0" />
+   </children>
+   <cursor>
+      <Cursor fx:constant="S_RESIZE" />
+   </cursor>
+</AnchorPane>
