@@ -46,16 +46,14 @@ public class GCode {
     }
 
     public void printNos(int N) {
-        if (N < 1) return;
-        else {
+        if (N > 1) {
             printNos(N - 1);
             System.out.println(N);
         }
     }
 
     static void printTillN(int N) {
-        if (N < 1) return;
-        else {
+        if (N > 1) {
             printTillN(N - 1);
             System.out.print(N + " ");
         }
@@ -219,7 +217,7 @@ public class GCode {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         boolean oe = true;
-        int depth =0;
+        int depth = 0;
         while (!queue.isEmpty()) {
             int size = queue.size();
 
@@ -230,12 +228,12 @@ public class GCode {
                 TreeNode n = queue.poll();
                 if (oe) { // Strictly Increasing Odd values
                     if (n.val % 2 == 0) return false;
-                    if (last<n.val)last = n.val;
+                    if (last < n.val) last = n.val;
                     else return false;
 
                 } else { // Strictly Decreasing is allowed
                     if (n.val % 2 != 0) return false;
-                    if (last>n.val)last = n.val;
+                    if (last > n.val) last = n.val;
                     else return false;
                 }
 
@@ -247,10 +245,111 @@ public class GCode {
         return true;
     }
 
+    int[][] dirs = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+
+    public void solve(char[][] board) {
+        if (board.length == 0) return;
+        int m = board.length, n = board[0].length;
+        for (char[] b : board) {
+            System.out.println(Arrays.toString(b));
+        }
+        System.out.println("Actual");
+
+        for (int i = 0; i < m; i++) {
+            dfs(board, i, 0);
+            dfs(board, i, n - 1);
+        }
+        for (char[] b : board) {
+            System.out.println(Arrays.toString(b));
+        }
+        System.out.println("Col");
+        for (int j = 0; j < n; j++) {
+            dfs(board, 0, j);
+            dfs(board, m - 1, j);
+        }
+        for (char[] b : board) {
+            System.out.println(Arrays.toString(b));
+        }
+        System.out.println("Row");
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (board[i][j] == 'O') board[i][j] = 'X';
+                if (board[i][j] == 'T') board[i][j] = 'O';
+            }
+        }
+    }
+
+    private void dfs(char[][] board, int x, int y) {
+        int m = board.length, n = board[0].length;
+        if (x < 0 || y < 0 || x >= m || y >= n || board[x][y] != 'O') return;
+        board[x][y] = 'T';
+        for (int[] d : dirs) dfs(board, x + d[0], y + d[1]);
+    }
+
+    public int catchThieves(char[] arr, int k) {
+        int i = -1, j = -1;
+        for (int x = 0; x < arr.length; x++) {
+            if (arr[x] == 'P') i = x;
+            if (arr[x] == 'T') j = x;
+            if (i != -1 && j != -1) break;
+        }
+
+        int caught = 0;
+
+        while (i < arr.length && j < arr.length) {
+            if (Math.abs(i - j) <= k) {
+                caught++;
+                do i++;
+                while (i < arr.length && arr[i] != 'P');
+                do j++;
+                while (j < arr.length && arr[j] != 'T');
+            } else if (i < j) {
+                do i++;
+                while (i < arr.length && arr[i] != 'P');
+            } else {
+                do j++;
+                while (j < arr.length && arr[j] != 'T');
+            }
+        }
+
+        return caught;
+    }
+
+    public double fractionalKnapsack(int[] val, int[] wt, int capacity) {
+        Queue<double[]> queue = new PriorityQueue<>(Comparator.comparingDouble(a -> -a[2]));
+        for (int i = 0; i < val.length; i++) {
+            double frac = (double) val[i] / wt[i];
+            double[] n = {(double) val[i], (double) wt[i], frac};
+            queue.add(n);
+        }
+        // Queue constrcuted
+        int caps = 0;
+        double profit = 0;
+        while (caps < capacity && !queue.isEmpty()) {
+            double[] n = queue.poll();
+            if (n[1]<=capacity-caps){
+                caps+=(int)n[1];
+                profit += n[0];
+            }
+            else {
+                int remain = capacity-caps;
+                System.out.println(remain);
+                profit += n[2]*remain;
+            }
+        }
+        return profit;
+    }
+
     public static void main(String[] args) {
         GCode g = new GCode();
-        int[] arr = {1, 0, 1, 1, 1, 0, 0};
-//        System.out.println(g.maxLen(arr));
-//        System.out.println(isNarcissistic(548834));
+        int[] val = {60,100,120};
+        int[] wt = {10,20,30};
+        System.out.println(g.fractionalKnapsack(val, wt, 50));
+
+//        char[][] b = {{'O', 'O', 'O' }, {'O', 'O', 'O' }, {'O', 'O', 'O' }};
+////        char[][] b = {{'X', 'X' ,'X','X'}, {'X', 'O','O','X' },{'X', 'X','O','X'},{'X', 'O','X','X'}};
+//        g.solve(b);
+//        System.out.println(Arrays.deepToString(b));
     }
 }
