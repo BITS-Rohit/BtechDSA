@@ -341,6 +341,45 @@ public class GCode {
         return profit;
     }
 
+    public int maximumBags(int[] capacity, int[] rocks, int additionalRocks) {
+        PriorityQueue<int[]> queue = new PriorityQueue<>(Comparator.comparingInt(a -> (a[0] - a[1])));
+        for (int i = 0; i < capacity.length; i++) queue.add(new int[]{capacity[i], rocks[i]});
+
+        int n = 0;
+        while (!queue.isEmpty() && additionalRocks > 0) {
+            int[] pair = queue.poll();
+            int needRocks = pair[0]-pair[1];
+
+            if (additionalRocks >= needRocks) {
+                n++;
+                additionalRocks -= needRocks;
+            }
+        }
+
+        return n;
+    }
+
+    public boolean canCross(int[] stones) {
+        return rec(stones,1,1,new boolean[stones.length]);
+    }
+
+    public boolean rec(int[] stones , int jump , int i , boolean[] dp){
+        if (i==stones.length)return true;
+        if (i > stones.length) return false;
+
+        // Stones stepping check
+        if (stones[i-1]+jump!=stones[i]) return false;
+
+        if (dp[i])return true;
+
+        // i is the current Fog index
+        boolean c1 = rec(stones,jump-1,i+1,dp);
+        boolean c2 = rec(stones,jump,i+1,dp);
+        boolean c3 = rec(stones,jump+1,i+1,dp);
+
+        return dp[i]= c1 || c2 || c3;
+    }
+
     public static void main(String[] args) {
         GCode g = new GCode();
         int[] val = {60,100,120};
