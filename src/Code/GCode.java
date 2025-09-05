@@ -328,14 +328,13 @@ public class GCode {
         double profit = 0;
         while (caps < capacity && !queue.isEmpty()) {
             double[] n = queue.poll();
-            if (n[1]<=capacity-caps){
-                caps+=(int)n[1];
+            if (n[1] <= capacity - caps) {
+                caps += (int) n[1];
                 profit += n[0];
-            }
-            else {
-                int remain = capacity-caps;
+            } else {
+                int remain = capacity - caps;
                 System.out.println(remain);
-                profit += n[2]*remain;
+                profit += n[2] * remain;
             }
         }
         return profit;
@@ -348,7 +347,7 @@ public class GCode {
         int n = 0;
         while (!queue.isEmpty() && additionalRocks > 0) {
             int[] pair = queue.poll();
-            int needRocks = pair[0]-pair[1];
+            int needRocks = pair[0] - pair[1];
 
             if (additionalRocks >= needRocks) {
                 n++;
@@ -360,31 +359,112 @@ public class GCode {
     }
 
     public boolean canCross(int[] stones) {
-        return rec(stones,1,1,new boolean[stones.length]);
+        return rec(stones, 1, 1, new boolean[stones.length]);
     }
 
-    public boolean rec(int[] stones , int jump , int i , boolean[] dp){
-        if (i==stones.length)return true;
+    public boolean rec(int[] stones, int jump, int i, boolean[] dp) {
+        if (i == stones.length) return true;
         if (i > stones.length) return false;
 
         // Stones stepping check
-        if (stones[i-1]+jump!=stones[i]) return false;
+        if (stones[i - 1] + jump != stones[i]) return false;
 
-        if (dp[i])return true;
+        if (dp[i]) return true;
 
         // i is the current Fog index
-        boolean c1 = rec(stones,jump-1,i+1,dp);
-        boolean c2 = rec(stones,jump,i+1,dp);
-        boolean c3 = rec(stones,jump+1,i+1,dp);
+        boolean c1 = rec(stones, jump - 1, i + 1, dp);
+        boolean c2 = rec(stones, jump, i + 1, dp);
+        boolean c3 = rec(stones, jump + 1, i + 1, dp);
 
-        return dp[i]= c1 || c2 || c3;
+        return dp[i] = c1 || c2 || c3;
+    }
+
+    public int canCompleteCircuit(int[] gas, int[] cost) {
+        // We will start with the max cost is.
+        // if cost becomes 0 means there is not any asnwer to that.
+        // then start checking the next index assuming him as start.
+
+        // struct : [ gas - cost ]
+        Queue<int[]> queue = new PriorityQueue<>(Comparator.comparingInt(a -> -a[1]));
+        for (int i = 0; i < gas.length; i++) queue.add(new int[]{gas[i], cost[i], i});
+        int n = 1;
+        int startCost = cost[(queue.peek()[2] - 1) % cost.length];
+        int startI = queue.poll()[2] + 1;
+
+        while (!queue.isEmpty() && n < gas.length) {
+            int[] pair = queue.poll();
+            if (pair[2] - 1 < cost.length && pair[2] - 1 > -1)
+                startCost = startCost - cost[pair[2]] + cost[pair[2] - 1];
+            if (startCost < 0) return -1;
+        }
+        return startCost < 0 ? -1 : startI;
+    }
+
+
+    public String largestNumber(int[] nums) {
+        String[] arr = Arrays.stream(nums).mapToObj(String::valueOf).toArray(String[]::new);
+        Arrays.sort(arr, (a, b) -> (b + a).compareTo(a + b));
+        if (arr[0].equals("0")) return "0";
+        StringBuilder largestNum = new StringBuilder();
+        for (String s : arr) largestNum.append(s);
+        return largestNum.toString();
+    }
+
+    public String removeDuplicateLetters(String s) {
+        int[] letters = new int[26];
+        Arrays.fill(letters, -1);
+        String max = "";
+        int start = -1;
+
+        for (int i = 0; i < s.length(); i++) {
+            if (start == -1) start = i;
+
+            int idx = s.charAt(i) - 'a';
+            if (letters[idx] == -1) {
+                letters[idx] = i;
+            } else {
+                // Duplicate Found
+                int lastI = letters[idx];
+
+                // s1 candidates
+                String cand1 = "";
+                if (lastI > start && lastI <= s.length()) cand1 = s.substring(start, lastI);
+
+                String cand2 = "";
+                if (i > start) cand2 = s.substring(start, i);
+
+                String s1 = cand1.compareTo(cand2) > 0 ? cand1 : cand2;
+
+                // s2 candidates
+                String cand3 = "";
+                if (lastI < i && lastI >= 0) cand3 = s.substring(lastI, i);
+
+                String cand4 = "";
+                if (lastI + 1 <= i && i + 1 <= s.length()) cand4 = s.substring(lastI + 1, i + 1);
+
+                String s2 = cand3.compareTo(cand4) > 0 ? cand3 : cand4;
+
+                // pick max
+                String s3 = s1.compareTo(s2) > 0 ? s1 : s2;
+                max = max.compareTo(s3) > 0 ? max : s3;
+
+                start = i;
+                letters[idx] = i;
+            }
+        }
+        return max;
     }
 
     public static void main(String[] args) {
         GCode g = new GCode();
-        int[] val = {60,100,120};
-        int[] wt = {10,20,30};
-        System.out.println(g.fractionalKnapsack(val, wt, 50));
+        System.out.println(g.removeDuplicateLetters("bcabc"));
+
+//        int[] gas = {1, 2, 3, 4, 5};
+//        int[] cost = {3, 4, 5, 1, 2};
+//        System.out.println(g.canCompleteCircuit(gas, cost));
+//        int[] val = {60,100,120};
+//        int[] wt = {10,20,30};
+//        System.out.println(g.fractionalKnapsack(val, wt, 50));
 
 //        char[][] b = {{'O', 'O', 'O' }, {'O', 'O', 'O' }, {'O', 'O', 'O' }};
 ////        char[][] b = {{'X', 'X' ,'X','X'}, {'X', 'O','O','X' },{'X', 'X','O','X'},{'X', 'O','X','X'}};
