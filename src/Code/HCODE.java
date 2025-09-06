@@ -604,6 +604,45 @@ public class HCODE {
             System.out.println("ERROR!");
         }
     }
+
+    StringBuilder st ;
+    void decode(String s, Node root) {
+        st = new StringBuilder();
+        for(int i =0; i < s.length(); i++)i=rec(root, i, s)-1;
+        System.out.print(st.toString());
+    }
+
+
+    private int rec(Node root, int start, String s) {
+        if (root.left == null && root.right == null) {
+            st.append(root.data);
+            return start;
+        }
+
+        if (start < s.length()) {
+            if (s.charAt(start) == '0') {
+                return rec(root.left, start + 1, s);
+            } else {
+                return rec(root.right, start + 1, s);
+            }
+        }
+        return start;
+    }
+
+    public static Node lca(Node root, int v1, int v2) {
+        if (root == null) return null;
+
+        if (v1 < root.data && v2 < root.data) {
+            return lca(root.left, v1, v2);
+        } else if (v1 > root.data && v2 > root.data) {
+            return lca(root.right, v1, v2);
+        } else {
+            return root;
+        }
+    }
+
+
+
 }
 /////////////////      1
 //        List<Integer>s =new ArrayList<>();

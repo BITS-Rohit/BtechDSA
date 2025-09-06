@@ -444,7 +444,7 @@ public class GCode {
 
                 String s2 = cand3.compareTo(cand4) > 0 ? cand3 : cand4;
 
-                // pick max
+                // pick maxz
                 String s3 = s1.compareTo(s2) > 0 ? s1 : s2;
                 max = max.compareTo(s3) > 0 ? max : s3;
 
