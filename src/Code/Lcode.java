@@ -1336,6 +1336,7 @@ public class Lcode {
 //    public int subarraySum(int[] nums, int k) {
 //
 //    }
+
     /// //////////////////////////////////
     public String reverseWords(String s) {
         String[] str = s.split(" ");
@@ -1447,7 +1448,7 @@ public class Lcode {
         return k;
     }
 
-    ////////////////////////////////////////////
+    /// /////////////////////////////////////////
     public void rotate(int[] array, int k) {
         if (array.length == 1 || k == 0) return;
         k = k % array.length;
@@ -1493,7 +1494,6 @@ public class Lcode {
 //        }
 //        return min;
 //    }
-
     public int minOperation(int[] nums, int k) {
         int c = 0;
         Set<Integer> distinct = new HashSet<>();
@@ -1723,7 +1723,7 @@ public class Lcode {
         return Math.abs(n) % 3 == 0;
     }
 
-    ////////////////////////////////////////
+    /// /////////////////////////////////////
     private int mf = 0;
     private int cf = 0;
     private int cv = Integer.MIN_VALUE;
@@ -1784,7 +1784,7 @@ public class Lcode {
         return word.equals(word.toUpperCase());
     }
 
-    //////////////////////////////////////
+    /// ///////////////////////////////////
 
     public String multiply1(String num1, String num2) {
         // ------------ =++= --------------
@@ -1813,7 +1813,7 @@ public class Lcode {
         return true;
     }
 
-    //////////////////////////////////////
+    /// ///////////////////////////////////
 
     //    public int firstMissingPositive(int[] nums) {
 //        Arrays.sort(nums);
@@ -2122,32 +2122,31 @@ public class Lcode {
     }
 
     /// //////////////////////////////////
-    public boolean parseBoolExpr(String e) {
-        //   |(f,f,f,t)"
-        if (e.length() == 1) return e.charAt(0) == 't';
-        boolean res = false;
-        char lastop = ' ';
-        int i = 0;
-        for (char ch : e.toCharArray()) {
-            if (ch == '&' || ch == '!' || ch == '|') lastop = ch;
-            i++;
-            if (ch == '(' && lastop != ' ') break;
-        }
-        return funcbool(e, i, lastop);
-    }
+//    public boolean parseBoolExpr(String e) {
+//        //   |(f,f,f,t)"
+//        if (e.length() == 1) return e.charAt(0) == 't';
+//        boolean res = false;
+//        char lastop = ' ';
+//        int i = 0;
+//        for (char ch : e.toCharArray()) {
+//            if (ch == '&' || ch == '!' || ch == '|') lastop = ch;
+//            i++;
+//            if (ch == '(' && lastop != ' ') break;
+//        }
+//        return funcbool(e, i, lastop);
+//    }
 
-    private boolean funcbool(String e, int i, char lastop) {
-        if (i == e.length()) return false;
-
-        char ch = e.charAt(i);
-        char nchar = ' ';
-        if (ch == '&' || ch == '!' || ch == '|') nchar = ch;
-        else if (ch == '(') {
-
-        }
-        return false;
-    }
-
+//    private boolean funcbool(String e, int i, char lastop) {
+//        if (i == e.length()) return false;
+//
+//        char ch = e.charAt(i);
+//        char nchar = ' ';
+//        if (ch == '&' || ch == '!' || ch == '|') nchar = ch;
+//        else if (ch == '(') {
+//
+//        }
+//        return false;
+//    }
     public boolean evaluateTree(TreeNode root) {
         if (root.left == null && root.right == null) return root.val == 1;
 
@@ -3025,22 +3024,22 @@ public class Lcode {
         return false;
     }
 
-    public void solve(char[][] board) {
-        // Key idea is that just  leave those 0 cells those are on the edge of the bounadry of the board
-        // another task is , we have to do it in-place,
-        // and we can do that by encoding the non -edge 0s
-        int row = board.length;
-        int col = board[0].length;
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < col; j++) {
-                if (board[i][j] == 'O') {
-                    if (onEdge(board, i, j)) {
-
-                    } else board[i][j] = 'X';
-                }
-            }
-        }
-    }
+//    public void solve(char[][] board) {
+//        // Key idea is that just  leave those 0 cells those are on the edge of the bounadry of the board
+//        // another task is , we have to do it in-place,
+//        // and we can do that by encoding the non -edge 0s
+//        int row = board.length;
+//        int col = board[0].length;
+//        for (int i = 0; i < row; i++) {
+//            for (int j = 0; j < col; j++) {
+//                if (board[i][j] == 'O') {
+//                    if (onEdge(board, i, j)) {
+//
+//                    } else board[i][j] = 'X';
+//                }
+//            }
+//        }
+//    }
 
     private boolean onEdge(char[][] board, int i, int j) {
         return i == 0 || j == 0 || i == board.length - 1 || j == board[0].length - 1;
@@ -4699,10 +4698,10 @@ public class Lcode {
     }
 
     int getprocessednum(int n) {
-        if (n == 0) return 0; // It may possible that the given n ==0
+        if (n == 0) return 0; // It may be possible that the given n ==0
         int c = 0; // counter for no. of Iteration
 
-        if (n % 10 == 0) n = Beutify(n); // It may possible that n is like 230 , 34900
+        if (n % 10 == 0) n = Beutify(n); // It may be possible that n is like 230 , 34900
 
         while (String.valueOf(n).length() != 1) { // Optimal finding as we will check if the
             // converted string length is 1 or not ?
@@ -4834,7 +4833,7 @@ public class Lcode {
     }
 
     private int getnear3(List<Integer> list, int n, boolean[] bool) {
-        // It is sure that if the n is to be existed as exact power of 3 then n%3 is already present
+        // It is certain that if the n is to be existed as exact power of 3 then n%3 is already present
         for (int i = 1; i < list.size(); i++) {
             if (list.get(i - 1) == n && !bool[i - 1]) {
                 bool[i] = true;
@@ -4851,7 +4850,7 @@ public class Lcode {
     }
 
     public int minLength(String s) {
-        // We can use stringbuilder and stack too but in string builder we will creating new strings but in stack we can optmiize it in only s space .
+        // We can use stringbuilder and stack too but in string builder we will create new strings but in stack we can optmiize it in only s space .
         Stack<Character> stacks = new Stack<>();
         for (char ch : s.toCharArray()) {
             if (!stacks.isEmpty() && ch == 'B' && stacks.peek() == 'A') stacks.pop();
@@ -5479,22 +5478,19 @@ public class Lcode {
         for (int i = 0; i < n; i++) {
             char ch = s.charAt(i);
 
-            if (Character.isDigit(ch))seenDigit = true;
+            if (Character.isDigit(ch)) seenDigit = true;
 
             else if (ch == '+' || ch == '-') {
                 if (i > 0 && (s.charAt(i - 1) != 'e' && s.charAt(i - 1) != 'E'))
                     return false;
-            }
-            else if (ch == '.') {
+            } else if (ch == '.') {
                 if (seenDot || seenExponent) return false;
                 seenDot = true;
-            }
-            else if (ch == 'e' || ch == 'E') {
+            } else if (ch == 'e' || ch == 'E') {
                 if (seenExponent || !seenDigit) return false;
                 seenExponent = true;
                 seenDigit = false;
-            }
-            else return false;
+            } else return false;
         }
         return seenDigit;
     }
@@ -5555,52 +5551,51 @@ public class Lcode {
     }
 
     public boolean validMountainArray(int[] arr) {
-        if(arr.length<3)return false;
+        if (arr.length < 3) return false;
         // we have to check for the first increating or decreasing
-        if(arr[0]<arr[1]){ // increasing
-            int i=0;
-            for(; i< arr.length; i++){
-                if(arr[i]<arr[i-1]) break;
+        if (arr[0] < arr[1]) { // increasing
+            int i = 0;
+            for (; true; i++) {
+                if (arr[i] < arr[i - 1]) break;
             }
-            for(; i<arr.length;i++){
-                if(arr[i]>arr[i-1])return false;
+            for (; i < arr.length; i++) {
+                if (arr[i] > arr[i - 1]) return false;
             }
-        }
-        else return false;
+        } else return false;
         return true;
     }
 
     public int maxAreaOfIsland(int[][] grid) {
-        // basically we need to counted the dfs calls on every grid comp
+        // basically we need to count the dfs calls on every grid comp,
         // and then we count the grid number
         // at last after the call is over we will max count;
         // by creating the cell -1 we can make it visited
         int r = grid.length;
         int c = grid[0].length;
-        int max=0;
+        int max = 0;
 
-        for(int i =0;i<r ; i++){
-            for(int j =0 ; j< c ;j++){
-                if(grid[i][j]==1){
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) {
+                if (grid[i][j] == 1) {
                     int[] n = new int[]{0};
-                    dfs(grid,i,j,n);
-                    max=Math.max(max,n[0]);
+                    dfs(grid, i, j, n);
+                    max = Math.max(max, n[0]);
                 }
             }
         }
         return max;
     }
 
-    void dfs(int[][] grid , int i , int j , int[] n){
-        if(i<0 || j<0 || i>=grid.length || j>=grid[0].length ||grid[i][j]==-1 || grid[i][j]==0){
+    void dfs(int[][] grid, int i, int j, int[] n) {
+        if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length || grid[i][j] == -1 || grid[i][j] == 0) {
             return;
         }
-        grid[i][j]=-1;
+        grid[i][j] = -1;
         n[0]++;
-        dfs(grid,i+1,j,n);
-        dfs(grid,i-1,j,n);
-        dfs(grid,i,j-1,n);
-        dfs(grid,i,j+1,n);
+        dfs(grid, i + 1, j, n);
+        dfs(grid, i - 1, j, n);
+        dfs(grid, i, j - 1, n);
+        dfs(grid, i, j + 1, n);
     }
 
     public ListNode[] splitListToParts(ListNode head, int k) {
@@ -5644,9 +5639,9 @@ public class Lcode {
     public boolean isCycle(ArrayList<ArrayList<Integer>> adj) {
         boolean[] visited = new boolean[adj.size()];
 
-        for(int i =0; i < adj.size(); i++){
-            if(!visited[i]){
-                if(cycle(i,visited,adj)){
+        for (int i = 0; i < adj.size(); i++) {
+            if (!visited[i]) {
+                if (cycle(i, visited, adj)) {
                     return true;
                 }
             }
@@ -5654,29 +5649,30 @@ public class Lcode {
         return false;
     }
 
-    boolean cycle(int src , boolean[] visited, ArrayList<ArrayList<Integer>> adj){
+    boolean cycle(int src, boolean[] visited, ArrayList<ArrayList<Integer>> adj) {
         Queue<int[]> queue = new LinkedList<>();
-        queue.offer(new int[]{src,-1});
-        visited[src]=true;
+        queue.offer(new int[]{src, -1});
+        visited[src] = true;
 
-        while(!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             int[] pair = queue.poll();
-            int node = pair[0] , parent = pair[1];
-            for(int nb : adj.get(node)){
-                if(nb==parent)continue;
-                else if(visited[nb])return true;
+            int node = pair[0], parent = pair[1];
+            for (int nb : adj.get(node)) {
+                if (nb == parent) continue;
+                else if (visited[nb]) return true;
                 else {
-                    queue.offer(new int[]{nb,node});
-                    visited[nb]=true;
+                    queue.offer(new int[]{nb, node});
+                    visited[nb] = true;
                 }
             }
         }
         return false;
     }
+
     static ArrayList<Integer> topologicalSort(ArrayList<ArrayList<Integer>> adj) {
         // we will need for the indegree for the topo sort
         int n = adj.size();
-        int degree[] = new int[n];
+        int[] degree = new int[n];
 
         for (ArrayList<Integer> integers : adj) {
             for (int nb : integers) {
@@ -5686,18 +5682,18 @@ public class Lcode {
 
         // Indegree done  , Now Queue
         Queue<Integer> queue = new LinkedList<>();
-        for(int x : degree){
-            if(x==0)queue.offer(x); // adding the ones with 0 indegree &
+        for (int x : degree) {
+            if (x == 0) queue.offer(x); // adding the ones with 0 indegree &
             // And initial value for the queue
         }
 
         ArrayList<Integer> list = new ArrayList<>();
-        while(!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             int node = queue.poll();
             list.add(node);
-            for(int x : adj.get(node)){
+            for (int x : adj.get(node)) {
                 degree[x]--;
-                if(degree[x]==0)queue.offer(x); // Add the 0 indegree nodes to queue
+                if (degree[x] == 0) queue.offer(x); // Add the 0 indegree nodes to queue
             }
         }
         return list;
@@ -5707,24 +5703,24 @@ public class Lcode {
         // we can check for the ( () () ) , ( () )
 
         StringBuilder sb = new StringBuilder();
-        int start =1 , left = 0;
-        for(int i=1 ; i < s.length(); i++ ){
-            if(s.charAt(i)=='(')start++;
-            else if(s.charAt(i)==')')start--;
+        int start = 1, left = 0;
+        for (int i = 1; i < s.length(); i++) {
+            if (s.charAt(i) == '(') start++;
+            else if (s.charAt(i) == ')') start--;
 
-            if(start!=0){ // we have a primitive type
+            if (start != 0) { // we have a primitive type
                 sb.append(s.charAt(i));
             }
 
         }
-        return  sb.toString();
+        return sb.toString();
     }
 
     Map<Integer, Map<Integer, PriorityQueue<Integer>>> map;
 
     public List<List<Integer>> verticalTraversal(TreeNode root) {
         map = new TreeMap<>();
-        mappings(root,0,0);
+        mappings(root, 0, 0);
 
         List<List<Integer>> OrderList = new ArrayList<>();
         for (Map<Integer, PriorityQueue<Integer>> rmap : map.values()) {
@@ -5737,19 +5733,21 @@ public class Lcode {
         return OrderList;
     }
 
-    void mappings(TreeNode root , int row , int col){
-        if(root==null)return;
+    void mappings(TreeNode root, int row, int col) {
+        if (root == null) return;
 
         map
-                .computeIfAbsent(col,x->new TreeMap<>())
-                .computeIfAbsent(row,x->new PriorityQueue<>())
+                .computeIfAbsent(col, x -> new TreeMap<>())
+                .computeIfAbsent(row, x -> new PriorityQueue<>())
                 .add(root.val);
 
-        mappings(root.left,row+1,col-1);
-        mappings(root.right,row+1,col+1);
+        mappings(root.left, row + 1, col - 1);
+        mappings(root.right, row + 1, col + 1);
     }
-    StringBuilder sb ;
+
+    StringBuilder sb;
     String min;
+
     public String smallestFromLeaf(TreeNode root) {
         // we can just create every string with backtrakcking
         // then at leaf we can just reverse it then check min String
@@ -5759,27 +5757,28 @@ public class Lcode {
         return min;
     }
 
-    void helper1 (TreeNode root){
-        if(root==null)return;
+    void helper1(TreeNode root) {
+        if (root == null) return;
 
         sb.append((char) ('a' + root.val));
         helper(root.left);
         helper(root.right);
-        sb.deleteCharAt(sb.length()-1);
+        sb.deleteCharAt(sb.length() - 1);
     }
 
     static int repeatedCharacter(String S) {
         int[] low = new int[26];
-        int[] high= new int[26];
+        int[] high = new int[26];
         // we will use array instead of map for optimisation
-        for(int  i =0; i< S.length(); i++){
-            if(Character.isUpperCase(S.charAt(i))){
-                if(high[S.charAt(i)-'A']>1)return i;
-                else high[S.charAt(i)-'A']++;
-            }
-            else {
-                if(low[S.charAt(i)-'a']>1)return i;
-                else low[S.charAt(i)-'a']++;
+        for (int i = 0; i < S.length(); i++) {
+            if (Character.isUpperCase(S.charAt(i))) {
+                int i1 = high[S.charAt(i) - 'A'];
+                if (i1 > 1) return i;
+                else i1++;
+            } else {
+                int i1 = low[S.charAt(i) - 'a'];
+                if (i1 > 1) return i;
+                else i1++;
             }
         }
 
@@ -5793,37 +5792,38 @@ public class Lcode {
 //        }
         return -1;
     }
-    Map<Integer,List<Integer> >map1 ;
-    int max=0;
+
+    Map<Integer, List<Integer>> map1;
+    int max = 0;
+
     public int[] findFrequentTreeSum(TreeNode root) {
-        map1= new HashMap<>();
+        map1 = new HashMap<>();
         helper(root);
         // now we have all the values
-        List<Integer> list =map1.get(max);
+        List<Integer> list = map1.get(max);
         int[] arr = new int[list.size()];
-        int k =0;
-        for(int x : list)arr[k++]=x;
+        int k = 0;
+        for (int x : list) arr[k++] = x;
         return arr;
     }
 
-    void helper(TreeNode root ){
-        if(root==null)return;
+    void helper(TreeNode root) {
+        if (root == null) return;
 
-        int left =root.left==null ? 0: root.left.val;
-        int right = root.right==null ? 0: root.right.val;
+        int left = root.left == null ? 0 : root.left.val;
+        int right = root.right == null ? 0 : root.right.val;
 
-        int sum = left+right+root.val;
-        max=Math.max(sum,max);
-        if(map1.containsKey(sum)){
+        int sum = left + right + root.val;
+        max = Math.max(sum, max);
+        if (map1.containsKey(sum)) {
             map1.get(sum).add(root.val);
-            if(root.left!=null)map1.get(sum).add(root.left.val);
-            if(root.right!=null) map1.get(sum).add(root.right.val);
-        }
-        else {
-            map1.put(sum,new ArrayList<>());
+            if (root.left != null) map1.get(sum).add(root.left.val);
+            if (root.right != null) map1.get(sum).add(root.right.val);
+        } else {
+            map1.put(sum, new ArrayList<>());
             map1.get(sum).add(root.val);
-            if(root.left!=null)map1.get(sum).add(root.left.val);
-            if(root.right!=null) map1.get(sum).add(root.right.val);
+            if (root.left != null) map1.get(sum).add(root.left.val);
+            if (root.right != null) map1.get(sum).add(root.right.val);
         }
 
         helper(root.left);
@@ -5856,55 +5856,55 @@ public class Lcode {
         return sum;
     }
 
-    List<String> list ;
-    Set<Character> ch ;
-    Set<String> set ;
-    char[][] b ;
+    List<String> list;
+    Set<Character> ch;
+    Set<String> set;
+    char[][] b;
 
     public List<String> findWords(char[][] board, String[] words) {
         list = new ArrayList<>();
         ch = new HashSet<>();
         set = new HashSet<>();
-        StringBuilder sb =  new StringBuilder();
-        b=board;
+        StringBuilder sb = new StringBuilder();
+        b = board;
         int m = board.length;
         int n = board[0].length;
 
         boolean[][] bool = new boolean[m][n];
 
-        for(String x : words){
+        for (String x : words) {
             ch.add(x.charAt(0)); // only these possible routes we will start
             set.add(x);
         }
 
-        for(int i=0 ; i< m ; i++ ){
-            for(int j =0 ; j< n ; j++){
-                if(ch.contains(board[i][j])){
-                    helper(bool,i,j,m,n,sb);
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (ch.contains(board[i][j])) {
+                    helper(bool, i, j, m, n, sb);
                 }
             }
         }
         return list;
     }
 
-    void helper(boolean[][] bool,int i , int j,int m , int n ,StringBuilder sb ){
-        if(i>=m || j>=n || i<0 || j<0|| bool[i][j])return ;
+    void helper(boolean[][] bool, int i, int j, int m, int n, StringBuilder sb) {
+        if (i >= m || j >= n || i < 0 || j < 0 || bool[i][j]) return;
 
-        bool[i][j]=true;
+        bool[i][j] = true;
         sb.append(b[i][j]);
 
-        if(set.contains(sb.toString())){
+        if (set.contains(sb.toString())) {
             list.add(sb.toString());
             set.remove(sb.toString());
         }
 
-        helper(bool,i+1,j,m,n,sb);
-        helper(bool,i-1,j,m,n,sb);
-        helper(bool,i,j+1,m,n,sb);
-        helper(bool,i,j-1,m,n,sb);
+        helper(bool, i + 1, j, m, n, sb);
+        helper(bool, i - 1, j, m, n, sb);
+        helper(bool, i, j + 1, m, n, sb);
+        helper(bool, i, j - 1, m, n, sb);
 
-        sb.deleteCharAt(sb.length()-1);
-        bool[i][j]=false;
+        sb.deleteCharAt(sb.length() - 1);
+        bool[i][j] = false;
     }
 
     public long calculateScore(String[] in, int[] val) {
@@ -5918,45 +5918,44 @@ public class Lcode {
 
             if (in[i].equals("jump")) {
                 i += val[i];
-            }
-            else if (in[i].equals("add")) {
+            } else if (in[i].equals("add")) {
                 score += val[i];
                 i++;
             }
 
-            if (set.size() == in.length ) break;
+            if (set.size() == in.length) break;
         }
 
         return score;
     }
 
     public int maximumPossibleSize(int[] nums) {
-        int p =-1;
+        int p = -1;
 
-        int pc1 =1 , pc2=0;
-        int plast1 =nums[0];
-        int plast2 =0;
+        int pc1 = 1, pc2 = 0;
+        int plast1 = nums[0];
+        int plast2 = 0;
         for (int i = 1; i < nums.length; i++) {
-            if(nums[i]>=plast1){
-                plast1=nums[i];
+            if (nums[i] >= plast1) {
+                plast1 = nums[i];
                 pc1++;
             }
-            if(nums[i]<plast1 && p==-1){
+            if (nums[i] < plast1 && p == -1) {
                 p = i;
                 pc2++;
-                plast2=nums[i];
+                plast2 = nums[i];
             }
         }
-        if(p!=-1){
+        if (p != -1) {
             p++;
-            for( ; p<nums.length;p++){
-                if(nums[p]>=plast2){
-                    plast2=nums[p];
+            for (; p < nums.length; p++) {
+                if (nums[p] >= plast2) {
+                    plast2 = nums[p];
                     pc2++;
                 }
             }
         }
-        return Math.max(pc1,pc2);
+        return Math.max(pc1, pc2);
     }
 
 
@@ -5971,7 +5970,7 @@ public class Lcode {
         for (int u = 0; u < n; u++) {
             for (int v = 0; v < n; v++) {
                 if (mat[u][v] == 1 && u != v) {
-                    degree.get(u)[1]++; 
+                    degree.get(u)[1]++;
                     degree.get(v)[0]++;
                 }
             }
@@ -5989,8 +5988,8 @@ public class Lcode {
 
     public int findKthNumber(int n, int k) {
 //        if(k==1)return 1;
-        List<String > list =new ArrayList<>();
-        for(int i =1 ; i<= 13 ; i++){
+        List<String> list = new ArrayList<>();
+        for (int i = 1; i <= 13; i++) {
             list.add(String.valueOf(i));
         }
         Collections.sort(list);
@@ -6001,15 +6000,14 @@ public class Lcode {
     public List<Integer> lexicalOrder(int n) {
         List<Integer> list = new ArrayList<>();
         int start = 1;
-        for(int i =1; i<= n ; i++){
+        for (int i = 1; i <= n; i++) {
             // dfs(i,n,list);
             list.add(start);
-            if(start*10<n){
-                start*=10;
-            }
-            else{
-                while(start%10 ==9 || start==n)start/=10;
-                start+=1;
+            if (start * 10 < n) {
+                start *= 10;
+            } else {
+                while (start % 10 == 9 || start == n) start /= 10;
+                start += 1;
             }
         }
         return list;
@@ -6060,10 +6058,189 @@ public class Lcode {
 //
 //    }
 
+    public List<Integer> getAllElements(TreeNode root1, TreeNode root2) {
+        // in-order traversal
+        // 2 pointer sort
+        List<Integer> l = new ArrayList<>();
+        List<Integer> l2 = new ArrayList<>();
+        rec(root1, l);
+        rec(root2, l2);
+
+        System.out.println("l : " + l);
+        System.out.println("l2 : " + l2);
+
+        return sort(l, l2);
+    }
+
+    void rec(TreeNode root, List<Integer> l) {
+        if (root == null) return;
+        rec(root.left, l);
+        l.add(root.val);
+        rec(root.right, l);
+    }
+
+    public List<Integer> sort(List<Integer> l, List<Integer> l2) {
+        List<Integer> l3 = new ArrayList<>();
+        int x = 0, y = 0;
+        while (x < l.size() && y < l2.size()) {
+            if (l.get(x) < l2.get(y)) l3.add(l.get(x++));
+            else if (l2.get(y) < l.get(x)) l3.add(l2.get(y++));
+            else {
+                l3.add(l2.get(y++));
+                l3.add(l.get(x++));
+            }
+        }
+
+        while (x < l.size()) l3.add(l.get(x++));
+        while (y < l2.size()) l3.add(l2.get(y++));
+
+        return l3;
+    }
+
+    public TreeNode balanceBST(TreeNode root) {
+        if (root == null) return null;
+
+        // Balance left and right subtrees first
+        root.left = balanceBST(root.left);
+        root.right = balanceBST(root.right);
+
+        int leftHeight = height1(root.left);
+        int rightHeight = height1(root.right);
+
+        if (Math.abs(leftHeight - rightHeight) > 1) {
+            // Left heavy
+            if (leftHeight > rightHeight) {
+                if (height1(root.left.left) >= height1(root.left.right)) {
+                    root = l_to_r__Shift(root); // Right rotation
+                } else {
+                    root.left = r_to_l_Shift(root.left); // Left rotation on child
+                    root = l_to_r__Shift(root);          // Then right rotation
+                }
+            }
+            // Right heavy
+            else {
+                if (height1(root.right.right) >= height1(root.right.left)) {
+                    root = r_to_l_Shift(root); // Left rotation
+                } else {
+                    root.right = l_to_r__Shift(root.right); // Right rotation on child
+                    root = r_to_l_Shift(root);              // Then left rotation
+                }
+            }
+        }
+
+        return root;
+    }
+
+    private int height1(TreeNode root) {
+        if (root == null) return 0;
+        return 1 + Math.max(height(root.left), height(root.right));
+    }
+
+    public TreeNode l_to_r__Shift(TreeNode root) {
+        TreeNode c = root.left;
+        TreeNode t = c.right;
+        c.right = root;
+        root.left = t;
+        return c;
+    }
+
+    public TreeNode r_to_l_Shift(TreeNode root) {
+        TreeNode c = root.right;
+        TreeNode t = c.left;
+        c.left = root;
+        root.right = t;
+        return c;
+    }
+
+    static class N {
+        int data;
+        N left = null;
+        N right = null;
+
+        N(int data) {
+            this.data = data;
+        }
+    }
+
+    static N root;
+
+    public static List<List<Integer>> swapNodes(List<List<Integer>> indexes, List<Integer> queries) {
+        root = new N(1);
+        buildT(indexes, 0);
+
+        List<List<Integer>> result = new ArrayList<>();
+
+        for (int k : queries) {
+            SwapT(k); // perform swap
+            List<Integer> inorderList = new ArrayList<>();
+            inorder(root, inorderList); // collect in-order traversal
+            result.add(inorderList);
+        }
+
+        return result;
+    }
+
+    static void SwapT(int k) {
+        Queue<N> q = new LinkedList<>();
+        q.add(root);
+        int depth = 1;
+
+        while (!q.isEmpty()) {
+            int size = q.size();
+
+            for (int i = 0; i < size; i++) {
+                N node = q.poll();
+
+                if (depth % k == 0) {
+                    // Swap children
+                    N temp = node.left;
+                    node.left = node.right;
+                    node.right = temp;
+                }
+
+                if (node.left != null) q.add(node.left);
+                if (node.right != null) q.add(node.right);
+            }
+
+            depth++;
+        }
+    }
+
+    static void inorder(N node, List<Integer> list) {
+        if (node == null) return;
+        inorder(node.left, list);
+        list.add(node.data);
+        inorder(node.right, list);
+    }
+
+    static void buildT(List<List<Integer>> list, int i) {
+        Queue<N> queue = new LinkedList<>();
+        queue.add(root);
+        int idx = 0;
+
+        while (!queue.isEmpty() && idx < list.size()) {
+            N node = queue.poll();
+
+            int left = list.get(idx).get(0);
+            int right = list.get(idx).get(1);
+
+            if (left != -1) {
+                node.left = new N(left);
+                queue.add(node.left);
+            }
+            if (right != -1) {
+                node.right = new N(right);
+                queue.add(node.right);
+            }
+
+            idx++;
+        }
+    }
+
     /// //////////////////////////////////
     public static void main(String[] args) {
         Lcode l = new Lcode();
-        System.out.println(l.findKthNumber(1,1));
+        System.out.println(l.findKthNumber(1, 1));
 //        System.out.println("apple".compareTo("apply"));
 //        System.out.println(l.maximumPossibleSize(new int[]{4,2,5,3,5}));
 //        System.out.println(l.calculateScore(new String[]{"jump","add","add"},new int[]{1,-7,-3}));
@@ -6701,16 +6878,15 @@ class MagicDictionary {
         }
 
 
-
         boolean search(String s) {
-            return dfs( s, 0, root, 0);
+            return dfs(s, 0, root, 0);
         }
 
         private boolean dfs(String word, int index, Tnode node, int count) {
             if (count > 1) return false;
             if (index == word.length()) return count == 1 && node.isend;
 
-            int idx = word.charAt(index)- 'a';
+            int idx = word.charAt(index) - 'a';
 
             for (int i = 0; i < 26; i++) {
                 if (node.child[i] == null) continue;
@@ -6719,8 +6895,8 @@ class MagicDictionary {
                     if (dfs(word, index + 1, node.child[i], count)) return true;
                 } else {
                     // Try replacing this character
-                    if(count<1){
-                        if ( dfs(word, index + 1, node.child[i], count + 1)) return true;
+                    if (count < 1) {
+                        if (dfs(word, index + 1, node.child[i], count + 1)) return true;
                     }
                 }
             }
@@ -6729,21 +6905,20 @@ class MagicDictionary {
         }
     }
 
-    Trie t ;
+    Trie t;
 
     public MagicDictionary() {
         t = new Trie();
     }
 
     public void buildDict(String[] dictionary) {
-        for(String x : dictionary )t.insert(x);
+        for (String x : dictionary) t.insert(x);
     }
 
     public boolean search(String searchWord) {
         return t.search(searchWord);
     }
 }
-
 
 
 //public boolean canBeValid(String s, String locked) {
@@ -6772,4 +6947,4 @@ class MagicDictionary {
 //            }
 //        }
 //        else return false;
-//}
+//
