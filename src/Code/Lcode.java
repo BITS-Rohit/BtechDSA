@@ -6237,6 +6237,100 @@ public class Lcode {
         }
     }
 
+//    static class Tnode {
+//        Tnode[] child = new Tnode[26];
+//        boolean isEnd = false;
+//        String word = "";
+//    }
+//
+//    Tnode rt;
+//
+//    int bt(String[] word) {
+//        int count = 0;
+//        for (String w : word) {
+//            Tnode m = rt;
+//            for (char c : w.toCharArray()) {
+//                int idx = c - 'a';
+//                if (m.child[idx] == null) m.child[idx] = new Tnode();
+//                m = m.child[idx];
+//            }
+//            m.isEnd = true;
+//            m.word = w;
+//            count++;
+//        }
+//        return count;
+//    }
+//
+//    static class C {
+//        boolean ans;
+//        int idx;
+//
+//        C(boolean ans, int idx) {
+//            this.ans = ans;
+//            this.idx = idx;
+//        }
+//    }
+//
+//    C checkT(Tnode r, String s, int idx, int count) {
+//        Set<String> set = new HashSet<>();
+//        for( int i =idx ; i<s.length(); i++ ){
+//            if (r.isEnd){
+//                if (!set.contains(r.word)){
+//                    set.add(r.word);
+//                    r=rt; // reset counter
+//                }
+//            }
+//            int x = s.charAt(i)-'a';
+//            if (r.child[x] == null)return new C(false , 0);
+//            r=r.child[x];
+//        }
+//    }
+//
+//    public List<Integer> findSubstring(String s, String[] words) {
+//        rt = new Tnode();
+//        int count = bt(words);
+//
+//        // we will also use a set to deterMine if the current word is already processed?
+//        // like : foofoothebarfoo  , words : foo , bar , ans = [9] not [0,9]
+//        List<Integer> list = new ArrayList<>();
+//        for (int i = 0; i < s.length(); i++) {
+//            Tnode m = rt;
+//            C a = checkT(m, s, i, count);
+//            if (a.ans) {
+//                list.add(i);
+//                i += a.idx - 1;
+//            }
+//        }
+//        return list;
+//    }
+
+
+    public boolean isMatch(String s, String p) {
+        Boolean[][] dp = new Boolean[s.length() + 1][p.length() + 1];
+        return recM(0, 0, s, p, dp);
+    }
+
+    boolean recM(int i, int j, String s, String p, Boolean[][] dp) {
+        if (i >= s.length() && j >= p.length()) return true;
+        if (j >= p.length()) return false;
+
+        if (dp[i][j] != null) return dp[i][j];
+
+        boolean match = (i < s.length()) &&
+                (s.charAt(i) == p.charAt(j) || p.charAt(j) == '.');
+
+        if (j + 1 < p.length() && p.charAt(j + 1) == '*') {
+            boolean pick = match && recM(i + 1, j, s, p, dp);
+            boolean npick = recM(i, j + 2, s, p, dp);
+            return dp[i][j] = pick || npick;
+        }
+
+        if (match) return dp[i][j] = recM(i + 1, j + 1, s, p, dp);
+        return dp[i][j] = false;
+    }
+
+
+
     /// //////////////////////////////////
     public static void main(String[] args) {
         Lcode l = new Lcode();
