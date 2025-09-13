@@ -6329,6 +6329,54 @@ public class Lcode {
         return dp[i][j] = false;
     }
 
+    public String sortVowels(String s) {
+        Set<Character> set = new HashSet<>();
+        set.add('a');
+        set.add('e');
+        set.add('i');
+        set.add('o');
+        set.add('u');
+        set.add('A');
+        set.add('E');
+        set.add('I');
+        set.add('O');
+        set.add('U');
+        // we have to store the idx where to fill too with vowels
+        List<Character> chars = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < s.length(); i++) {
+            if (set.contains(s.charAt(i))) {
+                list.add(i);
+                chars.add(s.charAt(i));
+            }
+        }
+        chars.sort(Comparator.comparingInt(a -> (int) a));
+        StringBuilder sb = new StringBuilder();
+        int j = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (j < list.size() && list.get(j) == i) {
+                sb.append(chars.get(j));
+                j++;
+            } else sb.append(s.charAt(i));
+        }
+        return sb.toString();
+    }
+
+    public int maxFreqSum(String s) {
+        int[] arr = new int[26];
+        int vow =0 ;
+        int cons =0;
+
+        // Fill array
+        for(char c : s.toCharArray())arr[c-'a']++;
+
+        // Get freq
+        for(int i =0; i< 26;i++){
+            if (i==(int)'a' -'a' || i ==(int)'e' -'a' ||  i ==(int)'i'  -'a'||  i ==(int)'o' -'a' ||  i ==(int)'u' -'a' )vow=Math.max(vow,arr[i]);
+            else cons=Math.max(cons,arr[i]);
+        }
+        return cons+vow;
+    }
 
 
     /// //////////////////////////////////
