@@ -1,0 +1,29 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<Message>
+    <note>
+        <id>200</id>
+        <date>
+            <Year>2024</Year>
+            <Month>08</Month>
+            <day>29</day>
+        </date>
+        <BookSTORE>
+            <!-- 1st Book-->
+            <Book>
+                <id>1001</id>
+                <Name>SEX SLAVE </Name>
+                <Autthor>&quot;J K Morgy &quot;</Autthor>
+                <price>Ruppes = "1999"</price>
+                <availble>"Yes"</availble>
+            </Book>
+            <!-- 2nd Book -->
+            <Book>
+                <id>2342</id>
+                <Name>I and U are not born for "This DAMNED World" </Name>
+                <Autthor>&quot;Raulet T M JUUKE &quot;</Autthor>
+                <price>Ruppes = "1049"</price>
+                <availble>"Yes"</availble>
+            </Book>
+        </BookSTORE>
+    </note>
+</Message>
