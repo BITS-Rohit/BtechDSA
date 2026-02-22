@@ -1987,7 +1987,6 @@ public class Lcode {
 
         for (int i = 1; i < nums.length; i++) {
             if (nums[i] == nums[i - 1]) {
-                continue;
             } else if (nums[i] == nums[i - 1] + 1) {
                 m++;
             } else {
@@ -11344,6 +11343,42 @@ public class Lcode {
 
         for (int[] b : borders)grid[b[0]][b[1]] = color;
         return grid;
+    }
+
+    public int[] numMovesStonesII(int[] stones) {
+        Arrays.sort(stones);
+        int n = stones.length;
+
+        // ----- Max Moves -----
+        int maxMoves = Math.max(
+                stones[n - 1] - stones[1],
+                stones[n - 2] - stones[0]
+        ) - (n - 2);
+
+        // ----- Min Moves (Sliding Window) -----
+        int minMoves = n;
+        int left = 0;
+
+        for (int right = 0; right < n; right++) {
+
+            // Maintain window size <= n
+            while (stones[right] - stones[left] + 1 > n) {
+                left++;
+            }
+
+            int already = right - left + 1;
+
+            // Special edge case:
+            // n-1 stones consecutive but one far away
+            if (already == n - 1 &&
+                    stones[right] - stones[left] + 1 == n - 1) {
+                minMoves = Math.min(minMoves, 2);
+            } else {
+                minMoves = Math.min(minMoves, n - already);
+            }
+        }
+
+        return new int[]{minMoves, maxMoves};
     }
 
 
