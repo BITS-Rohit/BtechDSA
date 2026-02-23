@@ -11380,12 +11380,23 @@ public class Lcode {
 
         return new int[]{minMoves, maxMoves};
     }
+    public boolean hasAllCodes(String s, int k) {
+        if (s.length() < k) return false;
 
+        Set<String> seen = new HashSet<>();
+
+        for (int i = 0; i <= s.length() - k; i++) {
+            seen.add(s.substring(i, i + k));
+        }
+
+        return seen.size() == (1 << k);
+    }
 
     /// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public static void main(String[] args) {
         Lcode l = new Lcode();
-        System.out.println(Arrays.toString(l.numMovesStones(1, 2, 5)));
+
+//        System.out.println(Arrays.toString(l.numMovesStones(1, 2, 5)));
 
 //        System.out.println(l.camelMatch(new String[]{"FooBar"}, "FB"));
 
