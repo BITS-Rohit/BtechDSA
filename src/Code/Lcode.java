@@ -11392,6 +11392,16 @@ public class Lcode {
         return seen.size() == (1 << k);
     }
 
+    public int[] sortByBits(int[] arr) {
+        return Arrays.stream(arr)
+                .boxed()
+                .sorted(Comparator
+                        .comparingInt(Integer::bitCount)
+                        .thenComparingInt(Integer::intValue))
+                .mapToInt(Integer::intValue)
+                .toArray();
+    }
+
     /// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public static void main(String[] args) {
         Lcode l = new Lcode();
