@@ -11402,10 +11402,22 @@ public class Lcode {
                 .toArray();
     }
 
+
+    public int concatenatedBinary(int n) {
+        long result = 0;
+        int MOD = 1_000_000_007;
+
+        for (int i = 1; i <= n; i++) {
+            int bits = Integer.toBinaryString(i).length();
+            result = ((result << bits) + i) % MOD;
+        }
+
+        return (int) result;
+    }
     /// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public static void main(String[] args) {
         Lcode l = new Lcode();
-
+        System.out.println(l.concatenatedBinary(3));
 //        System.out.println(Arrays.toString(l.numMovesStones(1, 2, 5)));
 
 //        System.out.println(l.camelMatch(new String[]{"FooBar"}, "FB"));
