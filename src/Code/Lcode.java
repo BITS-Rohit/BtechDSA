@@ -11341,7 +11341,7 @@ public class Lcode {
             if (isBorder) borders.add(new int[]{r, c});
         }
 
-        for (int[] b : borders)grid[b[0]][b[1]] = color;
+        for (int[] b : borders) grid[b[0]][b[1]] = color;
         return grid;
     }
 
@@ -11380,6 +11380,7 @@ public class Lcode {
 
         return new int[]{minMoves, maxMoves};
     }
+
     public boolean hasAllCodes(String s, int k) {
         if (s.length() < k) return false;
 
@@ -11414,6 +11415,49 @@ public class Lcode {
 
         return (int) result;
     }
+
+    public int minSwaps(int[][] grid) {
+        int n = grid.length;
+        int[] zeros = new int[n];
+
+        // Step 1: Count trailing zeros in each row
+        for (int i = 0; i < n; i++) {
+            int count = 0;
+            for (int j = n - 1; j >= 0 && grid[i][j] == 0; j--) {
+                count++;
+            }
+            zeros[i] = count;
+        }
+
+        int swaps = 0;
+
+        // Step 2: Greedy row bubbling
+        for (int i = 0; i < n; i++) {
+            int required = n - i - 1;
+            int j = i;
+
+            // Find first row that satisfies requirement
+            while (j < n && zeros[j] < required) {
+                j++;
+            }
+
+            if (j == n) {
+                return -1; // Not possible
+            }
+
+            // Bubble row up
+            while (j > i) {
+                int temp = zeros[j];
+                zeros[j] = zeros[j - 1];
+                zeros[j - 1] = temp;
+                swaps++;
+                j--;
+            }
+        }
+
+        return swaps;
+    }
+
     /// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public static void main(String[] args) {
         Lcode l = new Lcode();
