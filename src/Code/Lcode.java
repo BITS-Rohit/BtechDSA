@@ -11458,6 +11458,59 @@ public class Lcode {
         return swaps;
     }
 
+    // brute force
+    public int numSpecial(int[][] mat) {
+        int count = 0;
+        int m = mat.length, n = mat[0].length;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (mat[i][j] == 1 && checky(mat, i, j)) count++;
+            }
+        }
+        return count;
+    }
+
+    boolean checky(int[][] mat, int i, int j) {
+        int m = mat.length, n = mat[0].length;
+
+        int x = i - 1, y = j;
+        for (; x >= 0; x--) if (mat[x][y] == 1) return false;
+        x = i + 1;
+        for (; x < m; x++) if (mat[x][y] == 1) return false;
+        y = j - 1;
+        x = i;
+        for (; y >= 0; y--) if (mat[x][y] == 1) return false;
+        y = j + 1;
+        for (; y < n; y++) if (mat[x][y] == 1) return false;
+
+        return true;
+    }
+
+    public int[][] onesMinusZeros(int[][] grid) {
+        int m = grid.length, n = grid[0].length;
+
+        int[] onesRow = new int[m];
+        int[] onesCol = new int[n];
+
+        for (int i = 0; i < m; i++)
+            for (int j = 0; j < n; j++) {
+                if (grid[i][j] == 1) {
+                    onesRow[i]++;
+                    onesCol[j]++;
+                }
+            }
+
+        int[][] diff = new int[m][n];
+
+        for (int i = 0; i < m; i++)
+            for (int j = 0; j < n; j++) {
+                int zerosRow = n - onesRow[i];
+                int zerosCol = m - onesCol[j];
+                diff[i][j] = onesRow[i] + onesCol[j] - zerosRow - zerosCol;
+            }
+
+        return diff;
+    }
     /// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public static void main(String[] args) {
         Lcode l = new Lcode();
